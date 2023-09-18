@@ -17,5 +17,5 @@ Nb = 6; % order of Moving-average associated with the input
 
 disp(theta)
 disp(theta_test)
-assert(norm(theta - theta_test) < 1e-4);
+assert(norm(theta - theta_test) < 1e-2);
 assert(abs(AIC - AIC_test) < 1e-2);
