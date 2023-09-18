@@ -1,0 +1,41 @@
+name: Run tests
+
+on: 
+  push:
+    branches:
+      - master
+      - dev
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macOS-latest]
+
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up miniconda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: AEsensor_arx
+          environment-file: environment.yml
+          python-version: 3.11
+          auto-update-conda: true
+          auto-activate-base: false
+      - name: Set up MATLAB
+        uses: matlab-actions/setup-matlab@v1
+      - name: Run Matlab test and generate artifacts
+        uses: matlab-actions/run-tests@v1
+        with:
+          source-folder: src
+          select-by-folder: test/matlab
+          test-results-junit: test-results/results.xml
+      - name: Run Python test
+        run: conda install pytest
+        run: pytest ./test/python/test_remove_resp_digitalfilt.py --cov=./src --cov-report=xml
+      - name: Upload coverage reports to Codecov with GitHub Action
+        uses: codecov/codecov-action@v3
+        
