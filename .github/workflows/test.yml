@@ -10,6 +10,9 @@ on:
 jobs:
   test:
     runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash -el {0}
     strategy:
       matrix:
         os: [ubuntu-latest, macOS-latest]
@@ -35,7 +38,6 @@ jobs:
           test-results-junit: test-results/results.xml
       - name: Run Python test
         run:  |
-          conda activate AEsensor_arx
           conda install pytest
           pytest ./test/python/test_remove_resp_digitalfilt.py --cov=./src --cov-report=xml
       - name: Upload coverage reports to Codecov with GitHub Action
