@@ -31,7 +31,7 @@ Type the commands below in the terminal.
 git clone https://github.com/kura-okubo/AEsensor_Calibration_ARX.git
 cd AEsensor_Calibration_ARX
 conda env create -n AEsensor_arx -f environment.yml
-conda activate -n AEsensor_arx
+conda activate AEsensor_arx
 python3 -m pip install jupyter-matlab-proxy
 ```
 These commands download the repository in your local machine, create the environment with the dependencies used in the notebooks, and install the matlab kernel for the jupyter notebook.
