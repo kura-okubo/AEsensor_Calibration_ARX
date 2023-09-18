@@ -11,13 +11,25 @@ This repository contains the MATLAB function to conduct the sensor calibration u
 <img src="figure/AEsensor_calib_schematic.png" alt="fig1" width="800"/>
 
 
-- [01_AEsensor_calibration_arx.ipynb](code/01_AEsensor_calibration_arx.ipynb)
+- [01_AEsensor_calibration_arx.ipynb](src/01_AEsensor_calibration_arx.ipynb)
+  <a href="https://nbviewer.org/github/kura-okubo/AEsensor_Calibration_ARX/blob/master/src/01_AEsensor_calibration_arx.ipynb" target="_blank">
+   <img align="center"
+      src="https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.png"
+      width="109" height="20">
+  </a>
+  <br>
 We conduct the calibration of the AE sensor using  Auto-Regressive eXogenous (ARX) model. We use the measurements of laser Doppler vibrometer (LDV) and the AE sensor as the input and output of the system, respectively.
 
-- [02_Apply_removalresp_to_AEevent.ipynb](code/02_Apply_removalresp_to_AEevent.ipynb)
-We demonstrate the application of the ARX model with poles and zeros to the AE waveform using [code/remove_resp_digitalfilt.py](code/remove_resp_digitalfilt.py).
+- [02_Apply_removalresp_to_AEevent.ipynb](src/02_Apply_removalresp_to_AEevent.ipynb)
+  <a href="https://nbviewer.org/github/kura-okubo/AEsensor_Calibration_ARX/blob/master/src/02_Apply_removalresp_to_AEevent.ipynb" target="_blank">
+   <img align="center"
+      src="https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.png"
+      width="109" height="20">
+  </a>
+  <br>
+We demonstrate the application of the ARX model with poles and zeros to the AE waveform using [src/remove_resp_digitalfilt.py](src/remove_resp_digitalfilt.py).
 
-- [convert_and_save_AEevent_fb03-087.ipynb](code/convert_and_save_AEevent_fb03-087.ipynb)
+- [convert_and_save_AEevent_fb03-087.ipynb](src/convert_and_save_AEevent_fb03-087.ipynb)
 This notebook preprocesses the raw AE waveforms to use for the application of response removal.
 
 
@@ -69,7 +81,7 @@ conda env remove -n AEsensor_arx
 ```
 
 ## Matlab license
-To use the [code/lsq_arx.m](code/lsq_arx.m) and to execute the notebook of [01_AEsensor_calibration_arx.ipynb](code/01_AEsensor_calibration_arx.ipynb), you need a license for the followings:
+To use the [src/lsq_arx.m](src/lsq_arx.m) and to execute the notebook of [01_AEsensor_calibration_arx.ipynb](src/01_AEsensor_calibration_arx.ipynb), you need a license for the followings:
 
 - [MATLAB](https://www.mathworks.com/products/matlab.html) R2020b or later
 - [Signal Processing Toolbox](https://www.mathworks.com/products/signal.html)
