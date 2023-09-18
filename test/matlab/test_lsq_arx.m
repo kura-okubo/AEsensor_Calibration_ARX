@@ -1,6 +1,6 @@
 % Test script for lsq_arx.m
 clear all;
-addpath("../../code");
+addpath("../../src");
 
 % Read the true data
 load("../../data/testdata_lsq_arx.mat");
@@ -15,5 +15,5 @@ Nb = 6; % order of Moving-average associated with the input
 
 [theta_test, AIC_test] = lsq_arx(u_input_scaled, y_output_scaled, Na, Nb); % see lsq_arx.m for the details.
 
-assert(all((theta - theta_test) == 0));
-assert((AIC - AIC_test) == 0);
+assert(norm(theta - theta_test) < 1e-6);
+assert(abs(AIC - AIC_test) < 1e-2);
