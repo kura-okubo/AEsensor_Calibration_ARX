@@ -34,8 +34,9 @@ jobs:
           select-by-folder: test/matlab
           test-results-junit: test-results/results.xml
       - name: Run Python test
-        run: conda install pytest
-        run: pytest ./test/python/test_remove_resp_digitalfilt.py --cov=./src --cov-report=xml
+        run:  |
+          conda install pytest
+          pytest ./test/python/test_remove_resp_digitalfilt.py --cov=./src --cov-report=xml
       - name: Upload coverage reports to Codecov with GitHub Action
         uses: codecov/codecov-action@v3
         
