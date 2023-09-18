@@ -1,6 +1,8 @@
 # AEsensor Calibration using ARX model
 This repository contains the MATLAB function to conduct the sensor calibration using the autoregressive exogenous model (ARX) model, represented by poles and zeros, and an example to apply the response removal with the ARX model to the AE waveform. Jupyter notebooks are available to perform those processings above.
 
+[![Run tests](https://github.com/kura-okubo/AEsensor_Calibration_ARX/actions/workflows/test.yml/badge.svg)](https://github.com/kura-okubo/AEsensor_Calibration_ARX/actions/workflows/test.yml)
+
 [![Github All Releases](https://img.shields.io/github/downloads/kura-okubo/AEsensor_Calibration_ARX/total)]()
 
 
