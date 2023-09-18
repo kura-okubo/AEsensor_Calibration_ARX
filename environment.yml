@@ -1,0 +1,9 @@
+name: AEsensor_arx
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - numpy
+  - scipy
+  - obspy
+  - jupyterlab
