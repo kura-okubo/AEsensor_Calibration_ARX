@@ -17,14 +17,7 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v3
-      - name: Set up miniconda
-        uses: conda-incubator/setup-miniconda@v2
-        with:
-          activate-environment: AEsensor_arx
-          environment-file: environment.yml
-          python-version: 3.11
-          auto-update-conda: true
-          auto-activate-base: false
+     
       - name: Set up MATLAB
         uses: matlab-actions/setup-matlab@v1
       - name: Run Matlab test and generate artifacts
