@@ -3,6 +3,7 @@ This repository contains the MATLAB function to conduct the sensor calibration u
 
 [![Run tests](https://github.com/kura-okubo/AEsensor_Calibration_ARX/actions/workflows/test.yml/badge.svg)](https://github.com/kura-okubo/AEsensor_Calibration_ARX/actions/workflows/test.yml)
 [![codecov](https://codecov.io/gh/kura-okubo/AEsensor_Calibration_ARX/graph/badge.svg?token=1IQ6TJP65S)](https://codecov.io/gh/kura-okubo/AEsensor_Calibration_ARX)
+[![DOI](https://zenodo.org/badge/677228393.svg)](https://zenodo.org/badge/latestdoi/677228393)
 [![Github All Releases](https://img.shields.io/github/downloads/kura-okubo/AEsensor_Calibration_ARX/total)]()
 
 
