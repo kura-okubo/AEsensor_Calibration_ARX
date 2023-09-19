@@ -9,7 +9,6 @@ from obspy import read, Stream, Trace
 from obspy.signal.util import _npts2nfft
 from obspy.core.utcdatetime import UTCDateTime
 
-from pytest import approx
 from src.remove_resp_digitalfilt import remove_resp_digitalfilt
 
 UTCDateTime.DEFAULT_PRECISION = 8
@@ -30,7 +29,7 @@ def test_responseremoval():
     pre_filt = (5e3, 1e4, 1e6, 2e6) # prefilter for the remove_resp
     water_level = 60 # waterlevel [dB] for the remove_resp
 
-    tr_respremoved, freqs, freq_domain_taper, data_after_freqtapered, freq_response_forward, freq_response = remove_resp_digitalfilt(tr, poles_AE, zeros_AE, scale_fac_AE, pre_filt=pre_filt, water_level=60, zero_mean=True,
+    tr_respremoved, freqs, freq_domain_taper, data_after_freqtapered, freq_response_forward, freq_response = remove_resp_digitalfilt(tr, poles_AE, zeros_AE, scale_fac_AE, pre_filt=pre_filt, water_level=water_level, zero_mean=True,
         taper=True, taper_fraction=0.05, detrend=True, debug=True)
 
     # read pre-computed true data
@@ -38,3 +37,26 @@ def test_responseremoval():
 
     assert np.linalg.norm(tr_respremoved.data - truedata["data"]) < 1e-12
     assert np.linalg.norm(freqs - truedata["freqs"]) < 1e-2
+
+def test_responseremoval_auxiliary():
+    # auxiliary test
+
+    # Read the event trace
+    tr = read("./data/AE_waveform_fb03-087_OL07.sac")[0]
+
+    # Read response of AE sensor
+    D = sio.loadmat("./data/AE_resp_dataandcoef");
+    D.keys()
+    # remove response using the function
+    poles_AE = np.array([]) # no zero pole #np.squeeze(D["p"])
+    zeros_AE = np.squeeze(D["z"])
+    scale_fac_AE = np.squeeze(D["k"])
+
+    pre_filt = None
+    water_level = None
+
+    tr_respremoved = remove_resp_digitalfilt(tr, poles_AE, zeros_AE, scale_fac_AE, pre_filt=pre_filt, water_level=water_level, zero_mean=True,
+        taper=True, taper_fraction=0.05, detrend=True, debug=False)
+
+    assert isinstance(tr_respremoved.data, np.ndarray)
+    assert tr_respremoved.stats.sampling_rate == 1e7

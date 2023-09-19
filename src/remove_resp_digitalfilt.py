@@ -117,8 +117,9 @@ def remove_resp_digitalfilt(tr, poles, zeros, scale_fac, pre_filt=False, water_l
     b, a = signal.zpk2tf(zeros, poles, scale_fac)
     # a has to be a list for the scipy.signal.freqs() call later but zpk2tf()
     # strangely returns it as an integer.
-    if not isinstance(a, np.ndarray) and a == 1.0:
-        a = [1.0]
+    # update: this feature is fixed in the signal.zpk2tf.
+    # if not isinstance(a, np.ndarray) and a == 1.0:
+    #     a = [1.0]
     
     # compute the frequency response as digital filter at identical frequencies of rfft
     freqs, freq_response = signal.freqz(b, a, worN=freq_rfft, whole=False, plot=None, fs=tr.stats.sampling_rate, include_nyquist=False) 
