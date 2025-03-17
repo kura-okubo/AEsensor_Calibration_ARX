@@ -39,7 +39,7 @@ jobs:
           auto-activate-base: false
 
       - name: Set up MATLAB
-        uses: matlab-actions/setup-matlab@v1
+        uses: matlab-actions/setup-matlab@v2
 
       - name: Run MATLAB tests and generate artifacts
         uses: matlab-actions/run-tests@v1
