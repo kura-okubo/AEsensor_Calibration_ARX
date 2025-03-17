@@ -10,8 +10,8 @@ load("../../data/testdata_lsq_arx.mat");
 % plot(y_output_scaled);
 
 % Order of ARX model
-Na = 20; % order of Auto-regressive model
-Nb = 6; % order of Moving-average associated with the input
+Na = 24; % order of Auto-regressive model
+Nb = 11; % order of Moving-average associated with the input
 
 [theta_test, AIC_test] = lsq_arx(u_input_scaled, y_output_scaled, Na, Nb); % see lsq_arx.m for the details.
 
