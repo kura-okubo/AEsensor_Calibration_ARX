@@ -124,6 +124,9 @@ def remove_resp_digitalfilt(tr, poles, zeros, scale_fac, pre_filt=False, water_l
     # compute the frequency response as digital filter at identical frequencies of rfft
     freqs, freq_response = signal.freqz(b, a, worN=freq_rfft, whole=False, plot=None, fs=tr.stats.sampling_rate, include_nyquist=False) 
 
+    # # DEBUG using freqz_zpk
+    # freqs, freq_response = signal.freqz_zpk(zeros, poles, scale_fac, worN=freq_rfft, whole=False, fs=tr.stats.sampling_rate)
+
     freq_response_forward = copy.deepcopy(freq_response)
 
     # frequency domain pre-filtering of data spectrum

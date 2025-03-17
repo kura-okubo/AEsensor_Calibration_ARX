@@ -1,5 +1,9 @@
 .DS_Store
 .ipynb_checkpoints
 __pycache__
+archive
+debug*
+bk*
+data/*.pickle
 *.ai
 *.eps
