@@ -19,7 +19,7 @@ def test_responseremoval():
     tr = read("./data/AE_waveform_fb03-087_OL07.sac")[0]
 
     # Read response of AE sensor
-    D = sio.loadmat("./data/AE_resp_dataandcoef");
+    D = sio.loadmat("./data/AE_resp_dataandcoef_fronttop.mat");
     D.keys()
     # remove response using the function
     poles_AE = np.squeeze(D["p"])
