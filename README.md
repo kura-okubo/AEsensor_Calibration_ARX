@@ -122,4 +122,4 @@ Figure 2. Comparison before and after the response removal of the AE waveform.
 
 
 # Reference
-Okubo, K., Yamashita, F., & Fukuyama, E. (2025) Dynamics of non-self-similar earthquakes illuminated by a controlled fault asperity, in prep.
+Okubo, K., Yamashita, F., & Fukuyama, E. (2025). Dynamics of non-self-similar earthquakes illuminated by a controlled fault asperity, submitted.
