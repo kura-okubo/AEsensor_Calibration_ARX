@@ -45,6 +45,8 @@ def test_responseremoval_auxiliary():
 
     # Read the event trace
     tr = read("./data/AE_waveform_fb03-087_OL07.sac")[0]
+    tr.stats.sampling_rate = 1e7
+    tr.stats.delta = 1 / tr.stats.sampling_rate
 
     # Read response of AE sensor
     D = sio.loadmat("./data/AE_resp_dataandcoef_fronttop.mat");
